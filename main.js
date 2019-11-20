@@ -12,13 +12,13 @@ client.on('message', msg => {
     var i
     var command = ""
     for (i = 0; rawmessage.charAt(i) != " "; i++) {
-        command + rawmessage.charAt(i)
+        command = command + rawmessage.charAt(i)
     }
+    console.log(command)
     if (msg.slice(0, 1) = process.env.PREFIX) {
       if (command === 'ping') {
         msg.reply('pong');
       }
-   )
 });
 
 client.login();
