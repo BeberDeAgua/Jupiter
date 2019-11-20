@@ -1,4 +1,4 @@
-require('dotenv').config({ silent: process.env.NODE_ENV === 'production' });
+(process.env.NODE_ENV !== 'production') require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
