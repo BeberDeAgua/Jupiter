@@ -7,7 +7,20 @@
     "start": "node main.js"
   },
   "dependencies": {
-    "discord.js": "^11.1.0",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
     "request": "2.81.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeberYComer/Jupiter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BeberYComer/Jupiter/issues"
+  },
+  "homepage": "https://github.com/BeberYComer/Jupiter#readme"
 }
