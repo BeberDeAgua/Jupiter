@@ -9,6 +9,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     var rawmsg = msg.content;
+    var command = rawmsg.slice(1, 0);
     console.log(command);
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
