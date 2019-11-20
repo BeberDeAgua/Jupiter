@@ -11,7 +11,7 @@ client.on('message', msg => {
     var rawmessage = msg.content;
     var i
     var command = ""
-    for (i = 0, rawmessage.charAt(i) !== " ", i++) {
+    for (i = 0; rawmessage.charAt(i) != " "; i++) {
         command + rawmessage.charAt(i)
     }
     if (msg.slice(0, 1) = process.env.PREFIX) {
