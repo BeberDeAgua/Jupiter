@@ -1,13 +1,25 @@
 {
+
   "name": "Jupiter",
-  "version": "1.0.0",
-  "description": "If I dont work Im gonna cry",
+
+  "description": "That one guy.",
+
+  "version": "0.5.0",
+
   "main": "main.js",
-  "author": "Beber",
+
   "scripts": {
-  "start": "node main.js"
+
+    "start": "node main.js"
+
   },
+
   "dependencies": {
-    "discord.js": "^11.5.1"
+
+    "discord.js": "11.1.0",
+
+    "request": "2.81.0"
+
   }
+
 }
