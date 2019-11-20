@@ -8,9 +8,17 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('pong');
-  }
+    var rawmessage = msg.content;
+    var i
+    var command = ""
+    for (i = 0, rawmessage.charAt(i) !== " ", i++) {
+        command + rawmessage.charAt(i)
+    }
+    if (msg.slice(0, 1) = process.env.PREFIX) {
+      if (command === 'ping') {
+        msg.reply('pong');
+      }
+   )
 });
 
 client.login();
