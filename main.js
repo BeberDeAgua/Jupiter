@@ -1,5 +1,5 @@
-console.log(process.env.NODE_ENV)
-if (process.env.NODE_ENV) { require('dotenv').config() };
+var dotenv = require('dotenv');
+dotenv.config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
