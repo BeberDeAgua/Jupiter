@@ -18,11 +18,13 @@ client.on('message', msg => {
     };
 });
 
-fetch('https://jupiter-0.herokuapp.com/');
-.then(response => response.json());
-.then(data => {
-  console.log(data)
-});
-.catch(error => console.error(error));
+const Http = new XMLHttpRequest();
+const url='https://jsonplaceholder.typicode.com/posts';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+};
 
 client.login();
