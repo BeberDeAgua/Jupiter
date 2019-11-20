@@ -9,8 +9,8 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     var rawmessage = msg.content;
-    var i
-    var command = ""
+    var i;
+    var command = "";
     for (i = 0; rawmessage.charAt(i) != " "; i++) {
         command = command + rawmessage.charAt(i)
     };
@@ -20,6 +20,6 @@ client.on('message', msg => {
         msg.reply('pong');
       }
     };
-);
+});
 
 client.login();
