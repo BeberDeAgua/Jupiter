@@ -13,18 +13,11 @@ client.on('message', msg => {
     console.log(command);
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
-        msg.reply('pong');
+        msg.reply('Pong.');
+      } else if (command == 'dmMe') {
+        msg.author.sendmessage("Hi, I've DMed you.")
       }
     };
 });
-
-const Http = new XMLHttpRequest();
-const url='https://jsonplaceholder.typicode.com/posts';
-Http.open("GET", url);
-Http.send();
-
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
-};
 
 client.login();
