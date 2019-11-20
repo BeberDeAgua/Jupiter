@@ -1,0 +1,10 @@
+{
+  "name": "Jupiter",
+  "version": "1.0.0",
+  "description": "If I dont work Im gonna cry",
+  "main": "main.js",
+  "author": "Beber",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
