@@ -15,7 +15,7 @@ client.on('message', msg => {
       if (command === 'ping') {
         msg.reply('Pong.');
       } else if (command == 'dmMe') {
-        msg.author.sendmessage("Hi, I've DMed you.")
+        msg.author.send("Hi, I've DMed you.")
       }
     };
 });
