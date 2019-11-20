@@ -4,6 +4,9 @@
   "description": "If I dont work Im gonna cry",
   "main": "main.js",
   "author": "Beber",
+  "scripts": {
+  "start": "node main.js"
+  },
   "dependencies": {
     "discord.js": "^11.5.1"
   }
