@@ -10,12 +10,15 @@ client.on('ready', () => {
 client.on('message', msg => {
     var rawmsg = msg.content;
     var command = rawmsg.slice(1);
-    console.log(command);
+    console.log(rawmsg);
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
         msg.reply('Pong.');
       } else if (command == 'dmMe') {
         msg.author.send("Hi, I've DMed you.")
+      } else if (command == 'verifyMe') {
+        msg.author.send("Working on it.");
+        
       }
     };
 });
