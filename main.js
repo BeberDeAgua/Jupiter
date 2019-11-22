@@ -11,6 +11,9 @@ client.on('ready', () => {
 client.on('message', msg => {
     var rawmsg = msg.content;
     var command = rawmsg.slice(1);
+    for (i = 0, command.charAt(i) !== " ", i++) {
+      console.log(command.charAt(i))
+    };
     console.log(rawmsg);
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
@@ -18,13 +21,14 @@ client.on('message', msg => {
       } else if (command == 'dmMe') {
         msg.author.send("Hi, I've DMed you.")
       } else if (command == 'verifyMe') {
+        
         msg.author.send("Working on it.");
         
       }
     };
 });
 
-request.get('https://jupiter-0.herokuapp.com/get', {
+request.post('https://jupiter-0.herokuapp.com/', {
     'Lmao what' : 'lmbao'
 });
 
