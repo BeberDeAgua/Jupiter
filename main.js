@@ -11,9 +11,6 @@ client.on('ready', () => {
 client.on('message', msg => {
     var rawmsg = msg.content;
     var command = rawmsg.slice(1);
-    for (i = 0; command.charAt(i) !== " "; i++) {
-      console.log(command.charAt(i))
-    };
     console.log(rawmsg);
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
