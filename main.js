@@ -28,7 +28,7 @@ client.on('message', msg => {
     };
 });
 
-request.post('https://jupiter-0.herokuapp.com/', {
+Request.post('https://jupiter-0.herokuapp.com/', {
     'Lmao what' : 'lmbao'
 });
 
