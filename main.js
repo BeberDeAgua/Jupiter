@@ -10,17 +10,19 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     var rawmsg = msg.content;
-    var command = rawmsg.slice(1);
-    console.log(rawmsg);
+    var args = rawmsg.slice(1).split(/ +/g);
+    var command = args.shift();
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
         msg.reply('Pong.');
       } else if (command == 'dmMe') {
         msg.author.send("Hi, I've DMed you.")
       } else if (command == 'verifyMe') {
-        
-        msg.author.send("Working on it.");
-        
+          if (args[0]) {
+              msg.author.send("Working on it.");
+          } else 
+             msg.author.send("No name to verify.");
+          };
       }
     };
 });
