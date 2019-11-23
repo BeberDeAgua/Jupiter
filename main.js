@@ -20,9 +20,9 @@ client.on('message', msg => {
       } else if (command == 'verifyMe') {
           if (args[0]) {
               msg.author.send("Working on it.");
-          } else 
-             msg.author.send("No name to verify.");
-          };
+          } else {
+              msg.author.send("Nothing to work with here. Missing arguments.");
+          }
       }
     };
 });
