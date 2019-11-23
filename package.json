@@ -10,7 +10,8 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "request": "2.81.0",
-    "mongodb": "^3.3.4"
+    "mongodb": "^3.3.4",
+    "body": "^5.1.0"
   },
   "devDependencies": {},
   "repository": {
