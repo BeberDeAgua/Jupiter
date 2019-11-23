@@ -8,7 +8,7 @@ var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.
 
 const client = new Mongo.MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: true});
 client.connect(function(err, client) {
-  const DB = client.db("Jupiter")
+  const DB = client.db("Jupiter");
   const Codes = DB.collection("Codes");
   
   const server = http.createServer(function(req, res) {
