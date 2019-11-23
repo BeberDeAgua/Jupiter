@@ -12,8 +12,8 @@ client.connect(url, function(err, db) {
   const Codes = client.db("Jupiter").collection("Codes");
   
   const server = http.createServer(function(req, res) {
-    var jsbody = yield JSONbody(req, res);
-    var body = yield Body(req, res);
+    var jsbody = JSONbody(req, res);
+    var body = Body(req, res);
     
     console.log(jsbody)
   });
