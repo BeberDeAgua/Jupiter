@@ -6,8 +6,8 @@ const Body = require('body/form');
 const Mongo = require('mongodb');
 var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.mongodb.net/test?retryWrites=true&w=majority";
 
-const client = new Mongo.MongoClient;
-client.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
+const client = new Mongo.MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: true});
+client.connect(function(err, client) {
   const DB = client.db("Jupiter")
   const Codes = DB.collection("Codes");
   
