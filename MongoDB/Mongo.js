@@ -3,11 +3,11 @@ dotenv.config();
 const http = require('http');
 const JSONbody = require('body/json');
 const Body = require('body/form');
-const Mongo = require('mongodb');
+const Mongo = require('mongodb').MongoClient;
 var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.mongodb.net/test?retryWrites=true&w=majority";
 
-const client = new Mongo.MongoClient(url, {useNewUrlParser: true, useUnifiedTopology: true});
-client.connect(function(err, client) {
+
+Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology}, function(err, client) {
   const DB = client.db("Jupiter");
   const Codes = DB.collection("Codes");
   
