@@ -7,7 +7,9 @@ const Mongo = require('mongodb').MongoClient;
 var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.mongodb.net/test?retryWrites=true&w=majority";
 
 
+
 Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
+  if (err) throw err;
   const DB = client.db("Jupiter");
   const Codes = DB.collection("Codes");
   
