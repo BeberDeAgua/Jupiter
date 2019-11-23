@@ -9,6 +9,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+    const warnmsg = "Nothing to work with here. Missing arguments."
     var rawmsg = msg.content;
     var args = rawmsg.slice(1).split(/ +/g);
     var command = args.shift();
@@ -21,7 +22,7 @@ client.on('message', msg => {
           if (args[0]) {
               msg.author.send("Working on it.");
           } else {
-              msg.author.send("Nothing to work with here. Missing arguments.");
+              msg.author.send(warnmsg);
           }
       }
     };
