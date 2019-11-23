@@ -4,4 +4,5 @@ let Database = new sqlite.Database('./SQLite/OWO.db', (err) => {
     console.log(err.message)
   };
 }
+
 Database.close();
