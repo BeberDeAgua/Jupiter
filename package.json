@@ -4,7 +4,7 @@
   "version": "0.5.0",
   "main": "main.js",
   "scripts": {
-    "start": "node app/MongoDB/Mongo.js"
+    "start": "node MongoDB/Mongo.js"
   },
   "dependencies": {
     "discord.js": "^11.5.1",
