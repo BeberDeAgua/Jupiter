@@ -13,12 +13,12 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
   const DB = client.db("Jupiter");
   const Codes = DB.collection("Codes");
   
-  const server = http.createServer(function(req, res) {
+  client.close();
+});
+
+const server = http.createServer(function(req, res) {
     var jsbody = JSONbody(req, res);
     var body = Body(req, res);
     
     console.log(jsbody)
-  });
-  
-  client.close();
 });
