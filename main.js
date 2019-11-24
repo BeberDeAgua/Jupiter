@@ -1,6 +1,7 @@
 var dotenv = require('dotenv');
 dotenv.config();
 const Discord = require('discord.js');
+const http = require('http');
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -17,9 +18,17 @@ client.on('message', msg => {
         msg.reply('Pong.');
       } else if (command == 'dmMe') {
         msg.author.send("Hi, I've DMed you.")
-      } else if (command == 'verifyMe') {
+      } else if (command == 'getCode') {
           if (args[0]) {
-              msg.author.send("Working on it.");
+              msg.author.send("Working on it. \` ok \`");
+              const data = JSON.stringify({
+                thing: args[0];
+              });
+              
+              var req = http.request("https://jupiter-0.herokuapp.com/");
+              req.write(data);
+              req.end();
+
           } else {
               msg.author.send(warnmsg);
           }
