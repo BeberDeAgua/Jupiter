@@ -26,7 +26,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
   const Codes = DB.collection("Codes");
   
   const server = http.createServer(function(request, response) {
-    console.dir(request.param);
+   // console.dir(request.param);
 
     if (request.method == 'GET') {
       console.log('GET');
@@ -39,8 +39,16 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       };
     }else if (request.method == 'POST') {
       console.log('POST');
-      var table = JSON.stringify(request)
-      if (table.thing) {
+      let body = '';
+      req.on('data', chunk => {
+           body += chunk.toString(); // convert Buffer to string
+      });
+      req.on('end', () => {
+           console.log(body);
+           res.end('ok');
+      });
+      //var table = JSON.stringify(request)
+      if (table) {
         console.log(table.thing);
         response.writeHead(200, {'Content-Type': 'application/json'});
         options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + JSON.stringify(table.thing)},
