@@ -40,10 +40,10 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
     }else if (request.method == 'POST') {
       console.log('POST');
       let body = '';
-      req.on('data', chunk => {
+      request.on('data', chunk => {
            body += chunk.toString(); // convert Buffer to string
       });
-      req.on('end', () => {
+      request.on('end', () => {
            console.log(body);
            res.end('ok');
       });
@@ -57,6 +57,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
         });
         DatabaseSave(Codes, request.Thing)  
       };
+      request.end();
     };
     
   });
