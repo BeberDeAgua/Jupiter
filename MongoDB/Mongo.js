@@ -47,6 +47,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
            console.log(body);
            response.end('ok');
       });
+      console.log(body)
       var table = JSON.parse(body)
       if (table.thing) {
         console.log(table.thing);
