@@ -41,8 +41,10 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
     
   });
   
+ server.listen(process.env.PORT);
+  
   client.close();
 });
 
 
-server.listen(process.env.PORT);
+
