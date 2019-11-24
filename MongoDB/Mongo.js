@@ -48,7 +48,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
            res.end('ok');
       });
       //var table = JSON.stringify(request)
-      var
+      var table = null;
       if (table) {
         console.log(table.thing);
         response.writeHead(200, {'Content-Type': 'application/json'});
