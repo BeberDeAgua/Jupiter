@@ -37,7 +37,13 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           response.end();
         };
       };
-    } ;
+    }else if (request.method == 'POST') {
+      console.log('POST');
+      if (request.ID) {
+        response.writeHead(200, {'Content-Type': 'application/json'});
+        DatabaseSave(Codes, request.Thing)
+      };
+    };
     
   });
   
