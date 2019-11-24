@@ -22,7 +22,7 @@ client.on('message', msg => {
           if (args[0]) {
               msg.author.send("Working on it. \` ok \`");
               const data = JSON.stringify({
-                thing: args[0];
+                thing: args[0]
               });
               
               var req = http.request("https://jupiter-0.herokuapp.com/");
