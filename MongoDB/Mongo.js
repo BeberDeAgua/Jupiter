@@ -36,7 +36,7 @@ const server = http.createServer(function(request, response) {
     var html = `
             <html>
                 <body>
-                    <form method="post" action="http://localhost:3000">Name: 
+                    <form method="post">Name: 
                         <input type="text" name="name" />
                         <input type="submit" value="Submit" />
                     </form>
@@ -46,4 +46,4 @@ const server = http.createServer(function(request, response) {
     response.end(html)
   }
 });
-server.listen();
+server.listen(process.env.PORT);
