@@ -17,8 +17,6 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
 });
 
 const server = http.createServer(function(req, res) {
-    var jsbody = JSONbody(req, res);
-    var body = Body(req, res);
-    
-    console.log(jsbody)
+    console.log("AAAAA");
 });
+server.listen();
