@@ -25,7 +25,7 @@ client.on('message', msg => {
                 thing: args[0]
               });
               
-              var req = https.request("https://jupiter-0.herokuapp.com/");
+              var req = https.request("https://jupiter-0.herokuapp.com/", {method: "POST"});
               req.write(data);
               req.end();
 
