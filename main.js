@@ -1,6 +1,5 @@
 var dotenv = require('dotenv');
 dotenv.config();
-const Request = require('request');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -28,9 +27,7 @@ client.on('message', msg => {
     };
 });
 
-Request.post('https://jupiter-0.herokuapp.com/', {
-    'Lmao what' : 'lmbao'
-});
+
 
 client.login();
 
