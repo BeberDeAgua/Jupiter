@@ -1,7 +1,7 @@
 var dotenv = require('dotenv');
 dotenv.config();
 const Discord = require('discord.js');
-const http = require('http');
+const http = require('https');
 const client = new Discord.Client();
 
 client.on('ready', () => {
@@ -25,7 +25,7 @@ client.on('message', msg => {
                 thing: args[0]
               });
               
-              var req = http.request("https://jupiter-0.herokuapp.com/");
+              var req = https.request("https://jupiter-0.herokuapp.com/");
               req.write(data);
               req.end();
 
