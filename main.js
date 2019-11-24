@@ -1,7 +1,7 @@
 var dotenv = require('dotenv');
 dotenv.config();
 const Discord = require('discord.js');
-const http = require('https');
+const https = require('https');
 const client = new Discord.Client();
 
 client.on('ready', () => {
