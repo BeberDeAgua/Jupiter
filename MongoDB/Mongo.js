@@ -7,14 +7,14 @@ const Mongo = require('mongodb').MongoClient;
 var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.mongodb.net/test?retryWrites=true&w=majority";
            
 function DatabaseSave(db, thingToSave) {
-  db.insertOne(thingToSave; function(err, res) {
+  db.insertOne(thingToSave, function(err, res) {
     if (err) throw err;
     console.log(res);
   });
 };
                
 function DatabaseGet(db, thingToGet) {
-  db.findOne(thingToGet; function(err, res) {
+  db.findOne(thingToGet, function(err, res) {
     if (err) throw err;
     return res;
   });
