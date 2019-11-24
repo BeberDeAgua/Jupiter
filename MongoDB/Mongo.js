@@ -39,7 +39,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       };
     }else if (request.method == 'POST') {
       console.log('POST');
-      let body = '';
+      var body = '';
       request.on('data', chunk => {
            body += chunk.toString(); // convert Buffer to string
       });
