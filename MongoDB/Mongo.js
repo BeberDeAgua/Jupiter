@@ -47,16 +47,16 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
            console.log(body);
            response.end('ok');
       });
-      //var table = JSON.stringify(request)
-      var table = null;
-      if (table) {
+      var table = JSON.parse(body)
+      if (table.thing) {
         console.log(table.thing);
         response.writeHead(200, {'Content-Type': 'application/json'});
-        options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + JSON.stringify(table.thing)},
+        var options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + JSON.stringify(table.thing)},
         req = http.request(options, function(r) {
            console.log(JSON.stringify(r.headers));
         });
-        DatabaseSave(Codes, request.Thing)  
+        
+        //DatabaseSave(Codes, request.Thing)  
       };
       
     };
