@@ -39,9 +39,14 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       };
     }else if (request.method == 'POST') {
       console.log('POST');
-      if (request.ID) {
+      if (request.thing) {
+        console.log(request.thing);
         response.writeHead(200, {'Content-Type': 'application/json'});
-        DatabaseSave(Codes, request.Thing)
+        options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + request.thing},
+        req = http.request(options, function(r) {
+           console.log(JSON.stringify(r.headers));
+        });
+        DatabaseSave(Codes, request.Thing)  
       };
     };
     
