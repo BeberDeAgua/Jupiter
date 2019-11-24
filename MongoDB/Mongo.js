@@ -45,7 +45,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       });
       request.on('end', () => {
            console.log(body);
-           res.end('ok');
+           response.end('ok');
       });
       //var table = JSON.stringify(request)
       var table = null;
@@ -58,7 +58,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
         });
         DatabaseSave(Codes, request.Thing)  
       };
-      request.end();
+      
     };
     
   });
