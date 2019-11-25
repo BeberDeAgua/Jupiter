@@ -51,7 +51,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
         if (table.thing) {
           console.log(table.thing);
           response.writeHead(200, {'Content-Type': 'application/json'});
-          var options = {host: 'auth.roblox.com', path: '/v1/usernames/validate?request.username=' + table.thing};
+          var options = {host: 'auth.roblox.com', path: '/v1/usernames?username=' + table.thing};
           console.log(options.path);
           var req = https.get(options, function(r) {
              r.on('data', owo => {
