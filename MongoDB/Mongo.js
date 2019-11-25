@@ -50,10 +50,10 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
         if (table.thing) {
           console.log(table.thing);
           response.writeHead(200, {'Content-Type': 'application/json'});
-          var options = {method: 'GET', host: 'auth.roblox.com', path: '/v1/usernames/validate?request.username=' + table.thing};
+          var options = {host: 'auth.roblox.com', path: '/v1/usernames/validate?request.username=' + table.thing};
           console.log(options.path);
           req = http.request(options, function(r) {
-             console.log(JSON.stringify(r.read()));
+             console.log(JSON.stringify(r.body));
           });
           req.end();
 
