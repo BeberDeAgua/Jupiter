@@ -11,15 +11,11 @@ function DatabaseSave(db, thingToSave) {
   db.findOne({_id: thingToSave['_id']}, function(err, res) {
     if (err) {console.log(err)};
     if (res) {
-      db.updateOne({_id: thingToSave['_id']}, {$set: {discordUser: thingToSave.discordUser, code: thingToSave.code}}, function(err, res) {
-        if (err) {console.log(err)};
-        console.log("Save successful")
-       // db.close();
-      });
+      console.log('Already saved.");
     }else {
       db.insertOne({_id: thingToSave['_id'], discordUser: thingToSave.discordUser, code: thingToSave.code}, function(err, res) {
         if (err) throw err;
-        console.log("Save successful")
+        console.log("Save successful!");
        // db.close();
       });
       
