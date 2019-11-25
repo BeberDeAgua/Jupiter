@@ -49,7 +49,7 @@ client.on('message', msg => {
       if (command === 'ping') {
         msg.reply('Pong.');
       } else if (command == 'help') {
-        msg.author.send(helpEmbed);
+        msg.author.send({embed: helpEmbed});
       } else if (command == 'getCode') {
           if (args[0]) {
               msg.author.send("Working on connecting username \`" + args[0] + "\` to your account, " + msg.author.username + ".");
