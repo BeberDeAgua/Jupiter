@@ -8,7 +8,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const HelpEmbed = {
+const helpEmbed = {
 	color: 0xff5959,
 	title: 'Hi!',
 	description: "This is the list of Jupiter's commands. The bot itself is not very useful for purposes such as moderation, but it does help with Roblox - Discord verification.",
@@ -49,7 +49,7 @@ client.on('message', msg => {
       if (command === 'ping') {
         msg.reply('Pong.');
       } else if (command == 'help') {
-        msg.author.send(  
+        msg.author.send(helpEmbed);
       } else if (command == 'getCode') {
           if (args[0]) {
               msg.author.send("Working on connecting username \`" + args[0] + "\` to your account, " + msg.author.username + ".");
