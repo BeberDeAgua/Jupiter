@@ -46,11 +46,8 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
     if (request.method == 'GET') {
       console.log('GET');
       response.writeHead(200, {'Content-Type': 'application/json'});
-      var body = '';
-      request.on('data', chunk => {
-          body += chunk.toString();
-      });
-      console.log(body);
+      
+      console.log(request.headers);
     }else if (request.method == 'POST') {
       console.log('POST');
       var body = '';
