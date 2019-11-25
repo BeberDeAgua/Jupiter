@@ -53,7 +53,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
         console.log(owo);
         response.write(JSON.stringify(owo));
         response.end()
-      }
+      });
     }else if (request.method == 'POST') {
       console.log('POST');
       var body = '';
