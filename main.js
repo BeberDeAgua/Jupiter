@@ -20,10 +20,8 @@ client.on('message', msg => {
         msg.author.send("Hi, I've DMed you.")
       } else if (command == 'getCode') {
           if (args[0]) {
-              msg.author.send("Working on it. \` ok \`");
-              const data = JSON.stringify({
-                thing: args[0]
-              });
+              msg.author.send("Working on connecting accountID \`" + args[0] + "\` to your account, " + msg.author.username);
+              const data = JSON.stringify({thing: args[0], discName: msg.author.username});
               
               var req = https.request("https://jupiter-0.herokuapp.com/", {method: "POST"});
               req.write(data);
