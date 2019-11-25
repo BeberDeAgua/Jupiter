@@ -53,7 +53,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           var options = {method: 'GET', host: 'auth.roblox.com', path: '/v1/usernames/validate?request.username=' + table.thing};
           console.log(options.path);
           req = http.request(options, function(r) {
-             console.log(JSON.stringify(r.header));
+             console.log(JSON.stringify(r.read()));
           });
           req.end();
 
