@@ -13,7 +13,7 @@ const helpEmbed = {
 	title: 'Hi!',
 	description: "This is the list of Jupiter's commands. The bot itself is not very useful for purposes such as moderation, but it does help with Roblox - Discord verification.",
 	thumbnail: {
-		url: 'https://imgur.com/kLfFnBD',
+		url: 'https://i.imgur.com/GXB5mV1.gif',
 	},
 	fields: [
 		{
@@ -34,7 +34,7 @@ const helpEmbed = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Jupiter, made with love~',
-		icon_url: 'https://imgur.com/kLfFnBD',
+		icon_url: 'https://i.imgur.com/GXB5mV1.gif',
 	},
 };
 
