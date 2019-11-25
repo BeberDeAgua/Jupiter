@@ -36,7 +36,7 @@ function generateCode() {
 
 Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
   if (err) throw err;
-  client.connect()
+  client.connect();
   const DB = client.db("Jupiter");
   const Codes = DB.collection("Codes");
   
@@ -45,13 +45,12 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
 
     if (request.method == 'GET') {
       console.log('GET');
-      if (request.ID) {
-        response.writeHead(200, {'Content-Type': 'application/json'});
-        var thingy = DatabaseGet(Codes, request.ID)
-        if (thingy) {
-          response.end();
-        };
-      };
+      response.writeHead(200, {'Content-Type': 'application/json'});
+      var body = '';
+      request.on('data', chunk => {
+          body += chunk.toString();
+      });
+      console.log(body);
     }else if (request.method == 'POST') {
       console.log('POST');
       var body = '';
