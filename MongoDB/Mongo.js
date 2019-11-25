@@ -52,7 +52,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           response.writeHead(200, {'Content-Type': 'application/json'});
           var options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + JSON.stringify(table.thing)},
           req = http.request(options, function(r) {
-             console.log(JSON.stringify(r));
+             console.log(JSON.stringify(r.status));
           });
           req.end();
 
