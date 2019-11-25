@@ -26,8 +26,8 @@ function DatabaseSave(db, thingToSave) {
 async function DatabaseGet(db, thingToGet) {
   db.findOne(thingToGet, function(err, res) {
     if (err) throw err;
-             
-   return await res;
+    await res;
+   return res;
   });
 };
 
