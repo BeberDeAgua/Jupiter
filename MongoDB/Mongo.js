@@ -54,7 +54,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           console.log(options.path);
           var req = http.get(options, function(r) {
              r.on('data', owo => {
-               console.log(owo)
+               console.log(owo.toString())
              })
           });
          
