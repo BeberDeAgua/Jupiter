@@ -36,6 +36,7 @@ function generateCode() {
 
 Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
   if (err) throw err;
+  client.connect()
   const DB = client.db("Jupiter");
   const Codes = DB.collection("Codes");
   
