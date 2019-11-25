@@ -10,7 +10,7 @@ var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.
 function DatabaseSave(db, thingToSave) {
   db.findOne({_id: thingToSave['_id']}, function(err, res) {
     if (err) {console.log(err)};
-    if res {
+    if (res) {
       db.updateOne({_id: thingToSave['_id']}, {$set: {discordUser: thingToSave.discordUser, code: thingToSave.code}}, function(err, res) {
         if (err) {console.log(err)};
         console.log("Save successful")
@@ -68,7 +68,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
                console.log(owo.toString());
                var object = JSON.parse(owo);
                var uwu = generateCode()
-               if object.username {
+               if (object.username) {
                  DatabaseSave(Codes, {'_id': table.thing, discordUser: table.discName, code: uwu})
                }else console.log("No username by that.. name.")
                
