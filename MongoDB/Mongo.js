@@ -26,8 +26,8 @@ function DatabaseSave(db, thingToSave) {
 async function DatabaseGet(db, thingToGet) {
   db.findOne(thingToGet, function(err, res) {
     if (err) throw err;
-    //console.log(res);
-    return res;
+             
+   return await res;
   });
 };
 
@@ -48,8 +48,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       console.log('GET');
       response.writeHead(200, {'Content-Type': 'application/json'});
       
-      var owo = ''
-      DatabaseGet(Codes, {_id : request.headers.id}).then(function(err, result) { owo = result;});
+      var owo = DatabaseGet(Codes, {_id : request.headers.id})
       
       console.log(owo);
       response.end(JSON.stringify(owo))
