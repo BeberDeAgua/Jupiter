@@ -67,9 +67,9 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
              r.on('data', owo => {
                console.log(owo.toString());
                var object = JSON.parse(owo);
-               console.log(object);
+               console.log(object.length());
                var uwu = generateCode()
-               if (object.username) {
+               if (object.usernames) {
                  DatabaseSave(Codes, {'_id': table.thing, discordUser: table.discName, code: uwu})
                }else console.log("No username by that.. name.")
                
