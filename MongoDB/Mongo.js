@@ -23,15 +23,7 @@ function DatabaseSave(db, thingToSave) {
   });
 };
                
-function DatabaseGet(db, thingToGet) {
-  var finalres = "";
-  db.findOne(thingToGet, function(err, res) {
-    if (err) throw err;
-    finalres = res;
-  });
-  console.log(finalres)
-  return finalres;
-};
+
 
 function generateCode() {
    return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
@@ -51,12 +43,21 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       response.writeHead(200, {'Content-Type': 'application/json'});
       
       
-      var owo = DatabaseGet(Codes, {_id : request.headers.id});
+      Codes.findOne(thingToGet, function(err, res) {
+        if (err) throw err;
+        if (res) {
+          console.log(res);
+          response.end(JSON.stringify(res))
+        }else {
+          console.log('No data to get!')
+          response.end(JSON.stringify(null))
+        }
+          
+      });
 
       
       
-      console.log(owo);
-      response.end(JSON.stringify(owo))
+      
       
     }else if (request.method == 'POST') {
       console.log('POST');
