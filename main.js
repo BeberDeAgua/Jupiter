@@ -13,22 +13,22 @@ const helpEmbed = {
 	title: 'Hi!',
 	description: "This is the list of Jupiter's commands. The bot itself is not very useful for purposes such as moderation, but it does help with Roblox - Discord verification.",
 	thumbnail: {
-		url: 'https://i.imgur.com/wSTFkRM.png',
+		url: 'https://imgur.com/kLfFnBD',
 	},
 	fields: [
 		{
-			name: 'E',
-			value: 'Some value here',
+			name: '\`~help\`',
+			value: 'Brings up this message here!',
 		},
 		{
-			name: 'A',
-			value: 'Some value here',
-			inline: true,
+			name: '\`~getCode <RobloxUsername>\`',
+			value: 'Registers a new verification code under your Discord and Roblox accounts.',
+			
 		},
 		{
-			name: 'Sports',
-			value: 'Some value here',
-			inline: true,
+			name: '\`~ping\`',
+			value: 'Pong!',
+			
 		},
 	],
 	timestamp: new Date(),
@@ -47,12 +47,12 @@ client.on('message', msg => {
     var command = args.shift();
     if (rawmsg.slice(0, 1) == process.env.PREFIX) {
       if (command === 'ping') {
-        msg.reply('Pong.');
+        msg.reply('Pong!');
       } else if (command == 'help') {
         msg.author.send({embed: helpEmbed});
       } else if (command == 'getCode') {
           if (args[0]) {
-              msg.author.send("Working on connecting username \`" + args[0] + "\` to your account, " + msg.author.username + ".");
+              msg.author.send("Working on connecting username \`" + args[0] + "\` to your account, " + msg.author.username + ". . .");
               const data = JSON.stringify({thing: args[0], discName: msg.author.username});
               
               var req = https.request("https://jupiter-0.herokuapp.com/", {method: "POST"});
