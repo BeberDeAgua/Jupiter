@@ -11,7 +11,7 @@ function DatabaseSave(db, thingToSave) {
   db.findOne({_id: thingToSave['_id']}, function(err, res) {
     if (err) {console.log(err)};
     if (res) {
-      console.log('Already saved.");
+      console.log('Already saved.');
     }else {
       db.insertOne({_id: thingToSave['_id'], discordUser: thingToSave.discordUser, code: thingToSave.code}, function(err, res) {
         if (err) throw err;
