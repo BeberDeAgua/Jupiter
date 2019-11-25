@@ -92,12 +92,11 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
         };
         });
     };
-    
+    client.close()
   });
   
  server.listen(process.env.PORT);
-  
- DB.close();
+ 
 });
 
 
