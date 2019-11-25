@@ -41,8 +41,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       console.log('POST');
       var body = '';
       request.on('data', chunk => {
-          body += chunk.toString(); // convert Buffer to string
-          
+          body += chunk.toString();
       });
       request.on('end', () => {
         console.log(body);
@@ -55,6 +54,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           req = http.request(options, function(r) {
              console.log(JSON.stringify(r.headers));
           });
+          req.end();
 
           //DatabaseSave(Codes, request.Thing)  
         };
