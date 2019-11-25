@@ -43,7 +43,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       response.writeHead(200, {'Content-Type': 'application/json'});
       
       
-      Codes.findOne(thingToGet, function(err, res) {
+      Codes.findOne({_id: response.headers.id}, function(err, res) {
         if (err) throw err;
         if (res) {
           console.log(res);
