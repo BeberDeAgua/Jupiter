@@ -51,8 +51,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       var owo = DatabaseGet(Codes, {_id : request.headers.id});
       request.on('end', () => {
         console.log(owo);
-        response.write(JSON.stringify(owo));
-        response.end()
+        response.end(JSON.stringify(owo))
       });
     }else if (request.method == 'POST') {
       console.log('POST');
