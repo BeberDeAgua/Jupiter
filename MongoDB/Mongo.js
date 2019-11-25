@@ -20,7 +20,7 @@ function DatabaseSave(db, thingToSave) {
       db.insertOne({_id: thingToSave['_id'], discordUser: thingToSave.discordUser, code: thingToSave.code}, function(err, res) {
         if (err) throw err;
         db.close();
-      };
+      });
       
     };
   });
