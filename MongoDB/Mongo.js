@@ -1,6 +1,7 @@
 var dotenv = require('dotenv');
 dotenv.config();
 const http = require('http');
+const https = require('https');
 const JSONbody = require('body/json');
 const Body = require('body/form');
 const Mongo = require('mongodb').MongoClient;
@@ -52,7 +53,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           response.writeHead(200, {'Content-Type': 'application/json'});
           var options = {host: 'auth.roblox.com', path: '/v1/usernames/validate?request.username=' + table.thing};
           console.log(options.path);
-          var req = http.get(options, function(r) {
+          var req = https.get(options, function(r) {
              r.on('data', owo => {
                console.log(owo.toString())
              })
