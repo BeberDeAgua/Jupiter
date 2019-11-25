@@ -49,7 +49,11 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       response.writeHead(200, {'Content-Type': 'application/json'});
       
       var owo = DatabaseGet(Codes, {_id : request.headers.id});
-      console.log(owo);
+      request.on('end', () => {
+        console.log(owo);
+        response.write(JSON.stringify(owo));
+        response.end()
+      }
     }else if (request.method == 'POST') {
       console.log('POST');
       var body = '';
