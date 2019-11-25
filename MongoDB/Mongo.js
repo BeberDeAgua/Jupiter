@@ -41,7 +41,8 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       console.log('POST');
       var body = '';
       request.on('data', chunk => {
-           body += chunk.toString(); // convert Buffer to string
+          body += chunk.toString(); // convert Buffer to string
+          yield body;
       });
       request.on('end', () => {
            console.log(body);
