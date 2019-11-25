@@ -15,9 +15,9 @@ function DatabaseSave(db, thingToSave) {
         if (err) {console.log(err)};
         console.log("Save successful")
         db.close();
-      }
-    }
-  })
+      });
+    };
+  });
 };
                
 function DatabaseGet(db, thingToGet) {
