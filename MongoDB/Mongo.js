@@ -1,5 +1,7 @@
 var dotenv = require('dotenv');
 dotenv.config();
+const events = require('events');
+const event = new EventEmmiter();
 const http = require('http');
 const https = require('https');
 const JSONbody = require('body/json');
@@ -82,9 +84,12 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
                var uwu = generateCode()
                if (Object.entries(object.usernames).length === 1) {
                  console.log(uwu);
-                 DatabaseSave(Codes, {'_id': table.thing, discordUser: table.discName, code: uwu})
-                 
-               }else console.log("No user found!")
+                 DatabaseSave(Codes, {'_id': table.thing, discordUser: table.discName, code: uwu});
+                 event.emit('Success', uwu);
+               }else {
+                 console.log("No user found!");
+                 event.emit('Failed');
+               }
                
              })
           });
@@ -98,10 +103,13 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
     };
     client.close()
   });
+           
+
   
  server.listen(process.env.PORT);
  
 });
+export default event;
 
 
 
