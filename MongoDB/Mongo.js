@@ -23,13 +23,13 @@ function DatabaseSave(db, thingToSave) {
   });
 };
                
-async function DatabaseGet(db, thingToGet) {
+function DatabaseGet(db, thingToGet) {
   var finalres = "";
   db.findOne(thingToGet, function(err, res) {
     if (err) throw err;
     finalres = res;
   });
-  await finalres;
+  console.log(finalres)
   return finalres;
 };
 
@@ -51,13 +51,8 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       response.writeHead(200, {'Content-Type': 'application/json'});
       
       
-      var owo = '';
-      var ewe = DatabaseGet(Codes, {_id : request.headers.id});
-      console.log(ewe);
-      
-      ewe.then(function(result) {
-        owo = result;
-      });
+      var owo = DatabaseGet(Codes, {_id : request.headers.id});
+
       
       
       console.log(owo);
