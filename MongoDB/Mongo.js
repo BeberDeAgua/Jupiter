@@ -24,11 +24,12 @@ function DatabaseSave(db, thingToSave) {
 };
                
 async function DatabaseGet(db, thingToGet) {
+  var finalres = "";
   db.findOne(thingToGet, function(err, res) {
     if (err) throw err;
-    await res;
-   return res;
+    finalres = res;
   });
+  return finalres;
 };
 
 function generateCode() {
