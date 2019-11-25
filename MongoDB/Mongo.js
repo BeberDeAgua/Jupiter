@@ -51,7 +51,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       response.writeHead(200, {'Content-Type': 'application/json'});
       
       
-      var owo = DatabaseGet(Codes, {_id : request.headers.id})
+      var owo = DatabaseGet(Codes, {_id : request.headers.id}).then(function(result) { owo = result });
       
       console.log(owo);
       response.end(JSON.stringify(owo))
