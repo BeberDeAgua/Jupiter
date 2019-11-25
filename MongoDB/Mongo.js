@@ -16,6 +16,11 @@ function DatabaseSave(db, thingToSave) {
         console.log("Save successful")
         db.close();
       });
+    }else {
+      db.insertOne({_id: thingToSave['_id'], discordUser: thingToSave.discordUser, code: thingToSave.code}, function(err, res) {
+        if (err) throw err;
+      };
+      
     };
   });
 };
