@@ -14,12 +14,13 @@ function DatabaseSave(db, thingToSave) {
       db.updateOne({_id: thingToSave['_id']}, {$set: {discordUser: thingToSave.discordUser, code: thingToSave.code}}, function(err, res) {
         if (err) {console.log(err)};
         console.log("Save successful")
-        db.close();
+       // db.close();
       });
     }else {
       db.insertOne({_id: thingToSave['_id'], discordUser: thingToSave.discordUser, code: thingToSave.code}, function(err, res) {
         if (err) throw err;
-        db.close();
+        console.log("Save successful")
+       // db.close();
       });
       
     };
@@ -78,6 +79,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
                if (Object.entries(object.usernames).length === 1) {
                  console.log(uwu);
                  DatabaseSave(Codes, {'_id': table.thing, discordUser: table.discName, code: uwu})
+                 
                }else console.log("No user found!")
                
              })
@@ -95,7 +97,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
   
  server.listen(process.env.PORT);
   
-  client.close();
+ DB.close();
 });
 
 
