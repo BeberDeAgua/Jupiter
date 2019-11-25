@@ -8,10 +8,16 @@ const Mongo = require('mongodb').MongoClient;
 var url = "mongodb+srv://Joe:" + process.env.MONGOPASS + "@clu-ster-99b4b.azure.mongodb.net/test?retryWrites=true&w=majority";
            
 function DatabaseSave(db, thingToSave) {
-  db.insertOne(thingToSave, function(err, res) {
-    if (err) throw err;
-    console.log(res);
-  });
+  db.findOne({_id: thingToSave['_id']}, function(err, res) {
+    if (err) {console.log(err)};
+    if res {
+      db.updateOne({_id: thingToSave['_id']}, {$set: {discordUser: thingToSave.discordUser, code: thingToSave.code}}, function(err, res) {
+        if (err) {console.log(err)};
+        console.log("Save successful")
+        db.close();
+      }
+    }
+  })
 };
                
 function DatabaseGet(db, thingToGet) {
@@ -19,6 +25,10 @@ function DatabaseGet(db, thingToGet) {
     if (err) throw err;
     return res;
   });
+};
+
+function generateCode() {
+   return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase();
 };
 
 Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
@@ -55,14 +65,20 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           console.log(options.path);
           var req = https.get(options, function(r) {
              r.on('data', owo => {
-               console.log(owo.toString())
+               console.log(owo.toString());
+               var object = JSON.parse(owo);
+               var uwu = generateCode()
+               if object.username {
+                 DatabaseSave(Codes, {'_id': table.thing, discordUser: table.discName, code: uwu})
+               }else console.log("No username by that.. name.")
+               
              })
           });
          
           
           req.end();
 
-          //DatabaseSave(Codes, request.Thing)  
+         
         };
         });
     };
