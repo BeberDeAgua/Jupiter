@@ -42,25 +42,23 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
       var body = '';
       request.on('data', chunk => {
           body += chunk.toString(); // convert Buffer to string
-          yield body;
+          
       });
       request.on('end', () => {
-           console.log(body);
-           response.end('ok');
-      });
-      console.log(body)
-      var table = JSON.parse(body)
-      if (table.thing) {
-        console.log(table.thing);
-        response.writeHead(200, {'Content-Type': 'application/json'});
-        var options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + JSON.stringify(table.thing)},
-        req = http.request(options, function(r) {
-           console.log(JSON.stringify(r.headers));
+        console.log(body);
+        response.end('ok');
+        var table = JSON.parse(body)
+        if (table.thing) {
+          console.log(table.thing);
+          response.writeHead(200, {'Content-Type': 'application/json'});
+          var options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + JSON.stringify(table.thing)},
+          req = http.request(options, function(r) {
+             console.log(JSON.stringify(r.headers));
+          });
+
+          //DatabaseSave(Codes, request.Thing)  
+        };
         });
-        
-        //DatabaseSave(Codes, request.Thing)  
-      };
-      
     };
     
   });
