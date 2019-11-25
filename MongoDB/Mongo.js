@@ -57,7 +57,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           });
           req.on('data', owo => {
             console.log(owo)
-          }
+          });
           req.end();
 
           //DatabaseSave(Codes, request.Thing)  
