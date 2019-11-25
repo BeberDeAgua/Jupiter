@@ -52,9 +52,12 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           response.writeHead(200, {'Content-Type': 'application/json'});
           var options = {host: 'auth.roblox.com', path: '/v1/usernames/validate?request.username=' + table.thing};
           console.log(options.path);
-          req = http.request(options, function(r) {
-             console.log(r.json());
+          var req = http.request(options, function(r) {
+             
           });
+          req.on('data', owo => {
+            console.log(owo)
+          }
           req.end();
 
           //DatabaseSave(Codes, request.Thing)  
