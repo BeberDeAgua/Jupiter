@@ -13,7 +13,7 @@ const helpEmbed = {
 	title: 'Hi!',
 	description: "This is the list of Jupiter's commands. The bot itself is not very useful for purposes such as moderation, but it does help with Roblox - Discord verification.",
 	thumbnail: {
-		url: 'https://i.imgur.com/GXB5mV1.gif',
+		url: 'https://i.imgur.com/VzJKraW.png',
 	},
 	fields: [
 		{
