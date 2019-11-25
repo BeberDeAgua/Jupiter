@@ -29,6 +29,7 @@ async function DatabaseGet(db, thingToGet) {
     if (err) throw err;
     finalres = res;
   });
+  await finalres;
   return finalres;
 };
 
@@ -48,6 +49,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
     if (request.method == 'GET') {
       console.log('GET');
       response.writeHead(200, {'Content-Type': 'application/json'});
+      
       
       var owo = DatabaseGet(Codes, {_id : request.headers.id})
       
