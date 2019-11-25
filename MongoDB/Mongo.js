@@ -53,7 +53,7 @@ Mongo.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, function(e
           var options = {method: 'HEAD', host: 'roblox.com', path: '/users/' + table.thing};
           console.log(options.path);
           req = http.request(options, function(r) {
-             console.log(JSON.stringify(r.status));
+             console.log(JSON.stringify(r.headers));
           });
           req.end();
 
