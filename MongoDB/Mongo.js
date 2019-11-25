@@ -23,7 +23,7 @@ function DatabaseSave(db, thingToSave) {
   });
 };
                
-function DatabaseGet(db, thingToGet) {
+async function DatabaseGet(db, thingToGet) {
   db.findOne(thingToGet, function(err, res) {
     if (err) throw err;
     //console.log(res);
